@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sentiment Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="formclass">
+    <form action="sentiment" method="post">
+        <input type="text" name="word">
+        <input type="submit" value="submit">
+    </form>
+</div>
+    {% for i in get_flashed_messages() %}
+        <input id="happy" type="radio" name="smiley" value="Happy" {{i[0]}}>
+        <label for="happy">:)</label>
+        <input id="normal" type="radio" name="smiley" value="Normal" {{i[1]}}>
+        <label for="normal">:|</label>
+        <input id="angry" type="radio" name="smiley" value="Angry" {{i[2]}}>
+        <label for="angry">:(</label>
+    {% endfor %}
+    <div class="smiley">
+        <div class="eyes">
+            <div class="eye"></div>
+            <div class="eye"></div>
+        </div>
+        <div class="mouth"></div>
+    </div>
+</body>
+</html>
